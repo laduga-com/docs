@@ -4,4 +4,4 @@
 .. toctree::
     :maxdepth: 2
 
-    index.rst
+    User guide/index.rst
