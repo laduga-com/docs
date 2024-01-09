@@ -4,14 +4,14 @@ name: Deploy Sphinx documentation to Pages
 
 on:
   push:
-    branches: [master] # branch to trigger deployment
+    branches: [main] # branch to trigger deployment
 
 jobs:
   pages:
     runs-on: ubuntu-20.04
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ https://laduga-com.github.io/pradis-docs/ }}
     permissions:
       pages: write
       id-token: write
