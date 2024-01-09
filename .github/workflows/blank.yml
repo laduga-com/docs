@@ -11,8 +11,8 @@ jobs:
     - id: deployment
       uses: sphinx-notes/pages@v3
       with:
-        publish: false
+        publish: true
     - uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ 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 }}
         publish_dir: ${{ steps.deployment.outputs.artifact }}
