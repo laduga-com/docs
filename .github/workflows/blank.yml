@@ -9,12 +9,12 @@ on:
 jobs:
   pages:
     runs-on: ubuntu-20.04
-    environment:
-      name: github-pages
-      url: ${{ https://laduga-com.github.io/pradis-docs/ }}
-    permissions:
-      pages: write
-      id-token: write
     steps:
     - id: deployment
       uses: sphinx-notes/pages@v3
+      with:
+        publish: false
+    - uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ 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 }}
+        publish_dir: ${{ steps.deployment.outputs.artifact }}
