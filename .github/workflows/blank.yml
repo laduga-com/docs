@@ -1,12 +1,12 @@
 name: Deploy Sphinx documentation to Pages
 
-on:
+on: 
   push:
     branches: [main] # branch to trigger deployment
 
 jobs:
   pages:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -16,3 +16,5 @@ jobs:
     steps:
     - id: deployment
       uses: sphinx-notes/pages@v3
+
+#ubuntu-20.04
