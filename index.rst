@@ -1,10 +1,7 @@
-========================
-Руководство пользователя 
-========================
+Руководство пользователя
+====================
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
-    AltairRadioss_2022_UserGuide1
-    AltairRadioss_2022_UserGuide2
-    AltairRadioss_2022_UserGuide3
+    User guide/index
