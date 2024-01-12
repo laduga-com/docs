@@ -32,7 +32,11 @@ version = 'latest'
 release = version
 
 # RTD theme options
-html_theme = "sphinx_rtd_theme"
+html_theme_options = {
+    'logo_only': True,
+    'style_external_links': True,
+    'display_version': False,
+}
 
 # Disable click behavior for images
 html_scaled_image_link = False
