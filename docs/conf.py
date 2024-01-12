@@ -55,7 +55,6 @@ html_scaled_image_link = False
 ##html_context = {
 ##	'current_version': version,
 ##	'READTHEDOCS': True,
-//##	'extra_css_files': ['_static/custom.css'],
 
 ##	# force github plugin
 ##	'display_github': True,
