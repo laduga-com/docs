@@ -1,6 +1,6 @@
 .. toctree::
     :maxdepth: 2
 
-    AltairRadioss_2022_UserGuide1
-    AltairRadioss_2022_UserGuide2
-    AltairRadioss_2022_UserGuide3
+    User guide/AltairRadioss_2022_UserGuide1
+    User guide/AltairRadioss_2022_UserGuide2
+    User guide/AltairRadioss_2022_UserGuide3
