@@ -1,0 +1,24 @@
+name: Push to gh-pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Git
+      run: |
+        git config --global user.name 'IvanVP1'
+        git config --global user.email 'gfdfbjkkjjh@gmail.com'
+        git remote set-url origin https://$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@github.com/laduga-com/pradis-docs.git
+
+    - name: Push to gh-pages
+      run: |
+        git push origin HEAD:gh-pages --force
