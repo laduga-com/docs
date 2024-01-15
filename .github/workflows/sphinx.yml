@@ -2,7 +2,7 @@ name: Deploy Sphinx documentation to Pages
 
 on: 
   push:
-    branches: [master] # branch to trigger deployment
+    branches: [maim] # branch to trigger deployment
 
 jobs:
   pages:
@@ -15,6 +15,7 @@ jobs:
       pages: write
       id-token: write
     steps:
+      - name: Checkout repository
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
       - name: Install dependencies
@@ -23,6 +24,11 @@ jobs:
       - name: Sphinx build
         run: |
           sphinx-build docs _build
+      - name: Set up Git
+        run: |
+         git config --global user.name 'IvanVP1'
+         git config --global user.email 'gfdfbjkkjjh@gmail.com'
+         git remote set-url origin https://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@github.com/laduga-com/pradis-docs.git
       - name: Deploy to GitHub Pages
         uses: sphinx-notes/pages@v3
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
@@ -31,3 +37,12 @@ jobs:
           personal_token: ${{ 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 }}
           publish_dir: _build/
           force_orphan: true
+      - name: Push to gh-pages
+        run: |
+         git push origin HEAD:gh-pages --force
+
+
+
+
+
+
