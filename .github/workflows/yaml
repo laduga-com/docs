@@ -17,7 +17,7 @@ jobs:
       run: |
         git config --global user.name 'IvanVP1'
         git config --global user.email 'gfdfbjkkjjh@gmail.com'
-        git remote set-url origin https://$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@github.com/laduga-com/pradis-docs.git
+        git remote set-url origin https://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@github.com/laduga-com/pradis-docs.git
 
     - name: Push to gh-pages
       run: |
