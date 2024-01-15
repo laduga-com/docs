@@ -9,6 +9,9 @@ sys.path.insert(0, os.path.abspath(dir_path + '/_ext'))
 now = datetime.datetime.now()
 
 extensions = [
+    'sphinx_rtd_theme',
+    'sphinx.ext.autodoc',
+    'sphinx_autodoc_typehints'
     'sphinx.ext.doctest',
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
@@ -16,7 +19,6 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
-    'sphinx_rtd_theme',
 ]
 
 # General information about the project.
