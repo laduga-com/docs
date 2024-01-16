@@ -44,5 +44,5 @@ jobs:
          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Bild doc
         run: |
-         cd /pradis-docs/docs/index.rst
+         cd /home/runner/work/pradis-docs/pradis-docs/docs
          sphinx-build -b html . _build
