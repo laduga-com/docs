@@ -43,7 +43,7 @@ html_theme_options = {
     'display_version': False,
 }
 
-master_doc = 'index'
+main_doc = 'index'
 
 # Disable click behavior for images
 html_scaled_image_link = False
@@ -69,7 +69,7 @@ html_logo = "../_shared_assets/static/logo-white.png"
 ##if version.isdigit():
 ##	github_branch = 'stable%s' % version
 ##else:
-##	github_branch = 'master'
+##	github_branch = 'main'
 
 ##html_context = {
 ##	'current_version': version,
@@ -80,11 +80,11 @@ html_logo = "../_shared_assets/static/logo-white.png"
 ##	'display_github': True,
 ##	'github_user': 'nextcloud',
 ##	'github_repo': 'documentation',
-	# If current version is an int, use the stablexxx branches, otherwise, edit on master
+	# If current version is an int, use the stablexxx branches, otherwise, edit on main
 ##	'theme_vcs_pageview_mode': 'edit/%s/' % github_branch, # to be completed by each individual conf.py
 ##}
 
 ##edit_on_github_project = 'nextcloud/documentation'
-##edit_on_github_branch = 'master'
+##edit_on_github_branch = 'main'
 
 html_static_path = ['/all_index/_static']
