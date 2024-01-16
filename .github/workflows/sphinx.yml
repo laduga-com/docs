@@ -39,10 +39,6 @@ jobs:
           force_orphan: true
       - name: Push to gh-pages
         run: |
-         git push origin HEAD:gh-pages --force
-
-
-
-
-
-
+         git push origin gh-pages --force
+         env:
+         GH_TOKEN: ${{ secrets.GH_TOKEN }}
