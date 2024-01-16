@@ -42,7 +42,7 @@ jobs:
          git push origin gh-pages --force
          env:
          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      - name: Сборка документации
+      - name: Bild doc
         run: |
          cd /pradis-docs/docs/index.rst
          sphinx-build -b html . _build
