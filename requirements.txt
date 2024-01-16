@@ -1,5 +1,4 @@
+sphinx_rtd_theme
 sphinx
 rst2pdf
 pillow
-sphinx-rtd-theme
-pip install sphinx_rtd_theme
