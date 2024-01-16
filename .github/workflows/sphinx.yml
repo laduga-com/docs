@@ -1,48 +1,40 @@
-name: Deploy Sphinx documentation to Pages
+  default:
+  image:
+    name: sphinxdoc/sphinx:5.3.0 
+  before_script:
+  - python -V               # Print out python version for debugging
+  - pip3 install --requirement ./requirements.txt
+  - apt-get update
+  - apt-get install -y lftp
 
-on: 
-  push:
-    branches: [master] # branch to trigger deployment
+  job-prod:
+  script:
+  - cd docs ; make html
+  - ls ./user_manual/_build/html/com/
+  - ls ./user_modules/
+  - lftp -c "set ftp:ssl-allow no; open -u $USERNAME,$PASSWORD $HOST; mirror -Rnev  ./user_manual/_build/html/com/ ./user_manual/ --parallel=10 --exclude-glob .git* --exclude .git/"
+  - lftp -c "set ftp:ssl-allow no; open -u $USERNAME,$PASSWORD $HOST; mirror -Rnev  ./user_modules/_build/html/com/ ./user_modules/ --parallel=10 --exclude-glob .git* --exclude .git/"
+  - lftp -c "set ftp:ssl-allow no; open -u $USERNAME,$PASSWORD $HOST; mirror -Rnev  ./build/html/ ./v5/ --parallel=10 --exclude-glob .git* --exclude .git/"
+  only:
+  - master
 
-jobs:
-  pages:
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
-    steps:
-      - name: Checkout repository
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
-      - name: Install dependencies
-        run: |
-          pip install sphinx sphinx_rtd_theme myst_parser
-      - name: Sphinx build
-        run: |
-          sphinx-build docs _build
-      - name: Set up Git
-        run: |
-         git config --global user.name 'IvanVP1'
-         git config --global user.email 'gfdfbjkkjjh@gmail.com'
-         git remote set-url origin https://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@github.com/laduga-com/pradis-docs.git
-      - name: Deploy to GitHub Pages
-        uses: sphinx-notes/pages@v3
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-        with:
-          publish_branch: master
-          personal_token: ${{ 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 }}
-          publish_dir: _build/
-          force_orphan: true
-      - name: Push to main
-        run: |
-         git push origin main --force
-         env:
-         GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      - name: Bild doc
-        run: |
-         cd /home/runner/work/pradis-docs/pradis-docs/docs
-         sphinx-build -b html . _build
+  job-test:
+   script:
+   - cd docs ; make html
+   - ls ./user_manual/_build/html/com/
+   - ls ./user_modules/
+   - lftp -c "set ftp:ssl-allow no; open -u $DEVUSERNAME,$DEVPASSWORD $DEVHOST; mirror -Rnev  ./user_manual/_build/html/com/ ./user_manual/ --parallel=10 --exclude-glob .git* --exclude .git/"
+   - lftp -c "set ftp:ssl-allow no; open -u $DEVUSERNAME,$DEVPASSWORD $DEVHOST; mirror -Rnev  ./user_modules/_build/html/com/ ./user_modules/ --parallel=10 --exclude-glob .git* --exclude .git/"
+   - lftp -c "set ftp:ssl-allow no; open -u $DEVUSERNAME,$DEVPASSWORD $DEVHOST; mirror -Rnev  ./build/html/ ./v5/ --parallel=10 --exclude-glob .git* --exclude .git/"
+  except:
+    - master
+
+ release-job:
+   script:
+   - cd docs ; make html
+   artifacts:
+    paths:
+      - /builds/pradis/docs/pradis-sphinx-doc/user_manual/_build/html/com/
+      - /builds/pradis/docs/pradis-sphinx-doc/user_modules/_build/html/com/
+  rules:
+    - if: $CI_COMMIT_TAG
