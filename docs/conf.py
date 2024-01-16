@@ -4,8 +4,6 @@ import os, sys, datetime
 
 import sphinx_rtd_theme
 
-master_doc = 'index'
-
 dir_path = os.path.dirname(os.path.realpath(__file__))
 sys.path.insert(0, os.path.abspath(dir_path + '/_ext'))
 now = datetime.datetime.now()
@@ -44,6 +42,8 @@ html_theme_options = {
     'style_external_links': True,
     'display_version': False,
 }
+
+master_doc = 'index'
 
 # Disable click behavior for images
 html_scaled_image_link = False
