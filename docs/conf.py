@@ -1,9 +1,7 @@
 # global configuration for every documentation added at the end
 
 import os, sys, datetime
-
 import sphinx_autodoc_typehints
-
 import sphinx_rtd_theme
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -11,7 +9,7 @@ sys.path.insert(0, os.path.abspath(dir_path + '/_ext'))
 now = datetime.datetime.now()
 
 extensions = [
-    'sphinx_autodoc_typehints'
+    'sphinx_autodoc_typehints',
     'sphinx_rtd_theme',
     'sphinx.ext.autodoc',
     'sphinx.ext.doctest',
