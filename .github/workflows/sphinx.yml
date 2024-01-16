@@ -16,7 +16,3 @@ jobs:
     steps:
     - id: deployment
       uses: sphinx-notes/pages@v3
-    - name: Build Docs
-      run: |
-       cd /home/runner/work/pradis-docs/pradis-docs/docs
-       sphinx-build -b html . _build
