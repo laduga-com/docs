@@ -44,5 +44,5 @@ jobs:
          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Сборка документации
         run: |
-         cd /home/runner/work/pradis-docs/pradis-docs/docs/index.rst
+         cd /pradis-docs/pradis-docs/docs/index.rst
          sphinx-build -b html . _build
