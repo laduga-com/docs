@@ -18,5 +18,5 @@ jobs:
       uses: sphinx-notes/pages@v3
     - name: Build Docs
       run: |
-       cd /pradis-docs/docs
+       cd /home/runner/work/pradis-docs/pradis-docs/docs
        sphinx-build -b html . _build
