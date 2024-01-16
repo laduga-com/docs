@@ -37,9 +37,9 @@ jobs:
           personal_token: ${{ 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 }}
           publish_dir: _build/
           force_orphan: true
-      - name: Push to gh-pages
+      - name: Push to main
         run: |
-         git push origin gh-pages --force
+         git push origin main --force
          env:
          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Bild doc
