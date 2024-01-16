@@ -37,11 +37,7 @@ release = version
 
 html_theme = "sphinx_rtd_theme"
 
-html_theme_options = {
-    'logo_only': True,
-    'style_external_links': True,
-    'display_version': False,
-}
+html_theme_options = {}
 
 main_doc = 'index'
 
