@@ -1,8 +1,8 @@
 =====================
-Общее описание PRADIS
+Разработка ПГО на C++
 =====================
 
 .. toctree::
     :maxdepth: 2
 
-    general_description_pradis
+    pradis_gip_on_cpluspplus
