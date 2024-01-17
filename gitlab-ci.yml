@@ -1,0 +1,40 @@
+default:
+  image:
+    name: sphinxdoc/sphinx:5.3.0 
+  before_script:
+  - python -V               # Print out python version for debugging
+  - pip3 install --requirement ./requirements.txt
+  - apt-get update
+  - apt-get install -y lftp
+
+job-prod:
+  script:
+  - cd docs ; make html
+  - ls ./user_manual/_build/html/com/
+  - ls ./user_modules/
+  - lftp -c "set ftp:ssl-allow no; open -u $USERNAME,$PASSWORD $HOST; mirror -Rnev  ./user_manual/_build/html/com/ ./user_manual/ --parallel=10 --exclude-glob .git* --exclude .git/"
+  - lftp -c "set ftp:ssl-allow no; open -u $USERNAME,$PASSWORD $HOST; mirror -Rnev  ./user_modules/_build/html/com/ ./user_modules/ --parallel=10 --exclude-glob .git* --exclude .git/"
+  - lftp -c "set ftp:ssl-allow no; open -u $USERNAME,$PASSWORD $HOST; mirror -Rnev  ./build/html/ ./v5/ --parallel=10 --exclude-glob .git* --exclude .git/"
+  only:
+  - main
+
+job-test:
+  script:
+  - cd docs ; make html
+  - ls ./user_manual/_build/html/com/
+  - ls ./user_modules/
+  - lftp -c "set ftp:ssl-allow no; open -u $DEVUSERNAME,$DEVPASSWORD $DEVHOST; mirror -Rnev  ./user_manual/_build/html/com/ ./user_manual/ --parallel=10 --exclude-glob .git* --exclude .git/"
+  - lftp -c "set ftp:ssl-allow no; open -u $DEVUSERNAME,$DEVPASSWORD $DEVHOST; mirror -Rnev  ./user_modules/_build/html/com/ ./user_modules/ --parallel=10 --exclude-glob .git* --exclude .git/"
+  - lftp -c "set ftp:ssl-allow no; open -u $DEVUSERNAME,$DEVPASSWORD $DEVHOST; mirror -Rnev  ./build/html/ ./v5/ --parallel=10 --exclude-glob .git* --exclude .git/"
+  except:
+    - main
+
+release-job:
+  script:
+    - cd docs ; make html
+  artifacts:
+    paths:
+      - /builds/pradis-docs/docs/user_manual/_build/html/com/
+      - /builds/pradis-docs/docs/user_modules/_build/html/com/
+  rules:
+    - if: $CI_COMMIT_TAG
