@@ -1,5 +1,5 @@
 =======================
-PRADIS Documentation
+PRADIOSS Документация
 =======================
 
 Documentation is published on `<https://docs.pradis.laduga.com>`_.
