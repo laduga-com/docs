@@ -7,8 +7,8 @@
    :maxdepth: 2
    :caption: Contents:
 
-   user_manuals
-   user_modules
+   docs\user_manuals\contest
+   docs\user_modules\contest
 
 * `Руководство пользователя <https://dev.docs.pradis.laduga.com/user_manual/>`_
 * `Описание модулей <https://dev.docs.pradis.laduga.com/user_modules/>`_
