@@ -1,14 +1,14 @@
 .. _contents:
 
 =================================
-Pradios documentation
+Pradios документация
 =================================
 
-Table of contents
+Оглавление
 -----------------
 
 .. toctree::
     :maxdepth: 2
 
-    user_manual/index
+    user_manual/contents
     user_modules/contents
