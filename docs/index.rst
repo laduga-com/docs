@@ -1,14 +1,14 @@
-.. PRADIS
+.. _contents:
 
-Документация PRADIS. Разделы документации
-=========================================
+=================================
+Pradios документация
+=================================
+
+Оглавление
+-----------------
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+    :maxdepth: 2
 
-   docs\user_manuals\contest
-   docs\user_modules\contest
-
-* `Руководство пользователя <https://dev.docs.pradis.laduga.com/user_manual/>`_
-* `Описание модулей <https://dev.docs.pradis.laduga.com/user_modules/>`_
+    user_manual/contents
+    user_modules/contents
