@@ -36,7 +36,7 @@ html_theme = "sphinx_rtd_theme"
 
 html_theme_options = {}
 
-main_doc = 'index'
+main_doc = 'contents'
 
 # Disable click behavior for images
 html_scaled_image_link = False
@@ -71,13 +71,13 @@ html_logo = "../_shared_assets/static/logo-white.png"
 
 ##	# force github plugin
 ##	'display_github': True,
-##	'github_user': 'nextcloud',
+##	'github_user': 'Pradis',
 ##	'github_repo': 'documentation',
 	# If current version is an int, use the stablexxx branches, otherwise, edit on main
 ##	'theme_vcs_pageview_mode': 'edit/%s/' % github_branch, # to be completed by each individual conf.py
 ##}
 
-##edit_on_github_project = 'nextcloud/documentation'
+##edit_on_github_project = 'Pradis/documentation'
 ##edit_on_github_branch = 'main'
 
 html_static_path = ['/all_index/_static']
