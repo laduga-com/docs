@@ -5,7 +5,7 @@
 .. toctree::
     :maxdepth: 2
 
-    base/index_ru
-    Mathematics/index_ru
+    base/index
+    Mathematics/index
 
     index
