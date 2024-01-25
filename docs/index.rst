@@ -10,7 +10,7 @@ Table of contents
 .. toctree::
     :maxdepth: 2
 
-    docs/index
+    user_manual/index
     getting_started/index
     basics/index
     app_development/index
