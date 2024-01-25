@@ -11,4 +11,4 @@ Table of contents
     :maxdepth: 2
 
     user_manual/index
-    all_index/contents
+    user_modules/contents
