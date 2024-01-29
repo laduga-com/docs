@@ -6,6 +6,19 @@ default:
   - pip3 install --requirement ./requirements.txt
   - apt-get update
   - apt-get install -y lftp
+  
+  stages:
+  - sync
+
+sync:
+  stage: sync
+  script:
+    - git remote add gitlab <https://git.laduga.com/pradis/docs/-/tree/master/>
+    - git fetch gitlab
+    - git pull gitlab <master>
+    - git push origin <mirror>
+  only:
+    - <mirror>
 
 job-prod:
   script:
