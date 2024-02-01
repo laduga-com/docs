@@ -13,7 +13,7 @@
 .. figure:: ./media/pradis_get_params_2.png
    :alt: pradis_get_params_2.png
 
-3. Полученный Файл ``license`` необходимо поместить в папку ``C:\DINAMA\Qucs\bin``
+3. Полученный Файл ``license2`` необходимо поместить в папку ``DINAMA\License``
 
 .. figure:: ./media/pradis_get_params_3.png
    :alt: pradis_get_params_3.png
