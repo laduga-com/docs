@@ -15,7 +15,7 @@ import sys, os
 sys.path.insert(0, os.path.abspath('../'))
 from conf import *
 
-import sphinx_rtd_theme
+import sphinx-rtd-theme
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the

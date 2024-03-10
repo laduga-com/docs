@@ -1,7 +1,7 @@
 # global configuration for every documentation added at the end
 
 import os, sys, datetime
-import sphinx_rtd_theme
+import sphinx-rtd-theme
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 sys.path.insert(0, os.path.abspath(dir_path + '/_ext'))
