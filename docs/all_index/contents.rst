@@ -10,5 +10,5 @@
    user_manuals
    user_modules
 
-* `Руководство пользователя <https://dev.docs.pradis.laduga.com/user_manual/>`_
-* `Описание модулей <https://dev.docs.pradis.laduga.com/user_modules/>`_
+* `Руководство пользователя <https://docs.pradis.laduga.com/user_manual/>`_
+* `Описание модулей <https://docs.pradis.laduga.com/user_modules/>`_
