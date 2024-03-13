@@ -1,16 +1,29 @@
-default:
+stages:
+  - .pre
+  - build
+  - deploy
+
+pre:
+  stage: .pre
   image: sphinxdoc/sphinx:5.3.0
-  before_script:
+  script:
   - python -V               # Print out python version for debugging
   - pip3 install --requirement ./requirements.txt
   - apt-get update
   - apt-get install -y lftp
 
 job-prod:
+  stage: build
   script:
   - cd pradis-sphinx-doc ; make html
   - ls ./user_manual/_build/html/com/
   - ls ./user_modules/
+  only:
+  - master
+
+job-prod:
+  stage: deploy
+  script:
   - lftp -c "set ftp:ssl-allow no; open -u $USERNAME,$PASSWORD $HOST; mirror -Rnev  ./user_manual/_build/html/com/ ./user_manual/ --parallel=10 --exclude-glob .git* --exclude .git/"
   - lftp -c "set ftp:ssl-allow no; open -u $USERNAME,$PASSWORD $HOST; mirror -Rnev  ./user_modules/_build/html/com/ ./user_modules/ --parallel=10 --exclude-glob .git* --exclude .git/"
   - lftp -c "set ftp:ssl-allow no; open -u $USERNAME,$PASSWORD $HOST; mirror -Rnev  ./build/html/ ./v5/ --parallel=10 --exclude-glob .git* --exclude .git/"
@@ -18,6 +31,7 @@ job-prod:
   - master
 
 job-test:
+  stage: build
   script:
   - cd pradis-sphinx-doc ; make html
   - ls ./user_manual/_build/html/com/
